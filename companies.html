@@ -105,37 +105,38 @@
                            </p> -->
                             <p>
                                 <label for="tbuser">Name:</label><br>
-                                <input type="text" name="medname" id="tbuser">
+                                <input type="text" name="medname" id="name">
                             </p>
                             <p>
                                 <label for="tbuser">product:</label><br>
-                                <input type="text" name="productname"id="tbuser">
+                                <input type="text" name="productname"id="product">
                             </p>
-                            <p>
+                            <!-- <p>
                                 <label for="tbuser">Type:</label><br>
                                 <input type="text" name="" id="tbuser">
                                
+                            </p> -->
+                            <p>
+                                <label for="tbuser">Price:</label><br>
+                                <input type="text"  name="sp"id="price">
                             </p>
 
                         </div>
                         <div class="column">
 
-                            <p>
-                                <label for="tbuser">Price:</label><br>
-                                <input type="text"  name="sp"id="tbuser">
-                            </p>
+                           
                             <p>
                                 <label for="tbuser">Salesman Name:</label><br>
-                                <input type="text" name="loc"id="tbuser">
+                                <input type="text" name="loc"id="salesman">
                             </p>
                             <p>
                                 <label for="text">Contact no:</label><br>
-                                <input type="text" name="medid"id="tbuser">
+                                <input type="text" name="medid"id="contact">
                             </p>
                         </div>
 
 
-                        <input type="submit" name="add" value="Add " id="btn1">
+                        <input type="button" name="add" value="Add " id="btn1" onclick="add_data()">
                     </form>
                     <br>
 
@@ -143,7 +144,7 @@
 
                 </div>
             </div>
-
+ <!-- table -->
             <div class="table-data" >
                 <div class="order">
                     <div class="head">
@@ -151,14 +152,14 @@
                         <i class='bx bx-search'></i>
                         <i class='bx bx-filter'></i>
                     </div>
-                    <table >
+                    <table id="data">
                         <thead>
                             <tr>
                                 <th>companie Name</th>
                                 <th>Product</th>
                                 <th>Salesman Name</th>
                                 <th>Contact</th>
-                                <th>total product</th>
+                                <th>price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -238,7 +239,7 @@
                                 </td>
                                 
                                 <td>9512354782</td>
-                                <td><span class="status available">available</span></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -249,16 +250,35 @@
 
     </section>
     <script>
-        
- const text=document.getElementById('tbuser');
- const btn1=document.getElementById("btn1");
- const output=document.getElementById('output');
+    function add_data(){
+        let table=document.getElementById('data');
+        let name=document.getElementById('name').value;
+        let product=document.getElementById('product').value;
+        let price=document.getElementById('price').value;
+        let salesman=document.getElementById('salesman').value;
+        let contact=document.getElementById('contact').value;
+     var row=table.insertRow(1);
+       var cname=row.insertCell(0);
+       cname.innerHTML=name; 
+       var  product_cell=row.insertCell(1);
+       product_cell.innerHTML=product; 
+       var sname=row.insertCell(2);
+       sname.innerHTML=salesman; 
+       var c_no=row.insertCell(3);
+       c_no.innerHTML=contact; 
+       var sell_price=row.insertCell(4);
+       sell_price.innerHTML=price; 
 
-function fun1(){
-    output.innerHTML=text.value;
 
-} 
-btn1.addEventListener('click',fun1);
+
+    }
+
+
+
+
+    //    var row=table.insertRow(0);
+    //    var cell1=row.insertCell(0);
+    //    cell1.innerHTML="newcell"; 
 
 
 
